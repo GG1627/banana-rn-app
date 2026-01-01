@@ -1,9 +1,10 @@
 {
   "expo": {
-    "name": "banana-rn-app",
-    "slug": "banana-rn-app",
+    "name": "Banana Countdown",
+    "slug": "banana-countdown",
     "version": "1.0.0",
-    "scheme": "banana-rn-app",
+    "scheme": "banana-countdown",
+    "description": "Predict how many days your banana has left before it goes bad using AI-powered image recognition. Simply scan your banana to get an accurate prediction!",
     "platforms": [
       "ios",
       "android"
@@ -25,22 +26,34 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/logo.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#FFE75C"
     },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.gael1627.bananacountdown",
+      "buildNumber": "1",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Banana Countdown needs access to your camera to scan bananas and predict their ripeness.",
+        "NSPhotoLibraryUsageDescription": "Banana Countdown needs access to your photo library to select banana images for analysis."
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#FFE75C"
       },
-      "package": "com.gael1627.bananarnapp"
+      "package": "com.gael1627.bananacountdown",
+      "versionCode": 1,
+      "permissions": [
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ]
     },
     "extra": {
       "router": {},

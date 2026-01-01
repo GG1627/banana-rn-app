@@ -1,5 +1,5 @@
 {
-  "name": "banana-rn-app",
+  "name": "banana-countdown",
   "version": "1.0.0",
   "main": "expo-router/entry",
   "scripts": {

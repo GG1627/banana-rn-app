@@ -68,6 +68,7 @@ export default function RootLayout() {
             <Stack>
               <Stack.Screen name="index" options={INDEX_OPTIONS} />
               <Stack.Screen name="scan" options={SCAN_OPTIONS} />
+              <Stack.Screen name="metrics" options={METRICS_OPTIONS} />
               <Stack.Screen name="modal" options={MODAL_OPTIONS} />
             </Stack>
           </NavThemeProvider>
@@ -83,6 +84,10 @@ const INDEX_OPTIONS = {
 } as const;
 
 const SCAN_OPTIONS = {
+  headerShown: false,
+} as const;
+
+const METRICS_OPTIONS = {
   headerShown: false,
 } as const;
 

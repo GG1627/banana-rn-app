@@ -12,10 +12,12 @@ export default function ScanScreen() {
   const [prediction, setPrediction] = useState<any>(null);
   const [loading, setLoading] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [initializing, setInitializing] = useState(true);
 
   // Show image picker options when screen loads (after a brief delay)
   useEffect(() => {
     const timer = setTimeout(() => {
+      setInitializing(false);
       showImagePickerOptions();
     }, 300);
     return () => clearTimeout(timer);
@@ -299,12 +301,28 @@ const getPhrasesForDays = (days: number): string[] => {
           </Text>
         </View>
 
-        <ScrollView 
-          className="flex-1"
-          contentContainerStyle={{ paddingBottom: 40 }}
-          showsVerticalScrollIndicator={false}
-        >
-          <View className="flex-1 px-6 pb-8 items-center justify-start">
+        {/* Initial Loading Animation */}
+        {initializing && (
+          <View className="flex-1 items-center justify-center px-6">
+            <View className="rounded-3xl p-10 items-center">
+              <ActivityIndicator size="large" color="#000" />
+              <Text 
+                className="text-black text-lg font-medium mt-6 tracking-wide"
+                style={{ fontFamily: 'Poppins-Medium' }}
+              >
+                Preparing scanner...
+              </Text>
+            </View>
+          </View>
+        )}
+
+        {!initializing && (
+          <ScrollView 
+            className="flex-1"
+            contentContainerStyle={{ paddingBottom: 40 }}
+            showsVerticalScrollIndicator={false}
+          >
+            <View className="flex-1 px-6 pb-8 items-center justify-start">
             {/* Selected Image */}
             {selectedImage && (
               <View className="w-full items-center mb-8 mt-2">
@@ -401,6 +419,7 @@ const getPhrasesForDays = (days: number): string[] => {
             )}
           </View>
         </ScrollView>
+        )}
       </View>
     </>
   );

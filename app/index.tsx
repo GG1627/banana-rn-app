@@ -1,4 +1,4 @@
-import { View, ScrollView, Alert } from "react-native";
+import { View, ScrollView } from "react-native";
 import { Text } from "@/components/nativewindui/Text";
 import { StatusBar } from "expo-status-bar";
 import { Image } from "expo-image";
@@ -64,9 +64,7 @@ export default function Main() {
             
             <Button 
               className="bg-white/60 backdrop-blur-sm rounded-3xl h-16 border border-black/10 shadow-lg"
-              onPress={() => {
-                Alert.alert("Coming Soon", "Performance metrics will be available soon!");
-              }}
+              onPress={() => router.push("/metrics")}
               style={{ elevation: 4 }}
             >
               <Text 
