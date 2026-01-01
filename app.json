@@ -34,7 +34,7 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true,
+      "supportsTablet": false,
       "bundleIdentifier": "com.gael1627.bananacountdown",
       "buildNumber": "2",
       "infoPlist": {
