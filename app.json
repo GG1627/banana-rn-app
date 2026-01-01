@@ -36,7 +36,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.gael1627.bananacountdown",
-      "buildNumber": "1",
+      "buildNumber": "2",
       "infoPlist": {
         "NSCameraUsageDescription": "Banana Countdown needs access to your camera to scan bananas and predict their ripeness.",
         "NSPhotoLibraryUsageDescription": "Banana Countdown needs access to your photo library to select banana images for analysis.",
@@ -45,7 +45,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#FFE75C"
       },
       "package": "com.gael1627.bananacountdown",
