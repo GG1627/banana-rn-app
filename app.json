@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Banana Countdown",
-    "slug": "banana-countdown",
+    "slug": "banana-rn-app",
     "version": "1.0.0",
     "scheme": "banana-countdown",
     "description": "Predict how many days your banana has left before it goes bad using AI-powered image recognition. Simply scan your banana to get an accurate prediction!",
