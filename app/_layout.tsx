@@ -8,12 +8,24 @@ import { Link, Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { Platform, Pressable } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import * as SplashScreen from 'expo-splash-screen';
+import { useEffect } from 'react';
+import {
+  useFonts,
+  Poppins_400Regular,
+  Poppins_500Medium,
+  Poppins_600SemiBold,
+  Poppins_700Bold,
+} from '@expo-google-fonts/poppins';
 
 import { Icon } from '@/components/nativewindui/Icon';
 import { ThemeToggle } from '@/components/nativewindui/ThemeToggle';
 import { cn } from '@/lib/cn';
 import { useColorScheme } from '@/lib/useColorScheme';
 import { NAV_THEME } from '@/theme';
+
+// Keep the splash screen visible while we fetch resources
+SplashScreen.preventAutoHideAsync();
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -24,6 +36,23 @@ const isIos26 = Platform.select({ default: false, ios: Device.osVersion?.startsW
 
 export default function RootLayout() {
   const { colorScheme, isDarkColorScheme } = useColorScheme();
+  
+  const [fontsLoaded] = useFonts({
+    'Poppins-Regular': Poppins_400Regular,
+    'Poppins-Medium': Poppins_500Medium,
+    'Poppins-SemiBold': Poppins_600SemiBold,
+    'Poppins-Bold': Poppins_700Bold,
+  });
+
+  useEffect(() => {
+    if (fontsLoaded) {
+      SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
   return (
     <>
@@ -38,6 +67,7 @@ export default function RootLayout() {
           <NavThemeProvider value={NAV_THEME[colorScheme]}>
             <Stack>
               <Stack.Screen name="index" options={INDEX_OPTIONS} />
+              <Stack.Screen name="scan" options={SCAN_OPTIONS} />
               <Stack.Screen name="modal" options={MODAL_OPTIONS} />
             </Stack>
           </NavThemeProvider>
@@ -49,10 +79,11 @@ export default function RootLayout() {
 }
 
 const INDEX_OPTIONS = {
-  headerLargeTitle: true,
-  headerTransparent: isIos26,
-  title: 'NativewindUI',
-  headerRight: () => <SettingsIcon />,
+  headerShown: false,
+} as const;
+
+const SCAN_OPTIONS = {
+  headerShown: false,
 } as const;
 
 function SettingsIcon() {
