@@ -39,7 +39,8 @@
       "buildNumber": "1",
       "infoPlist": {
         "NSCameraUsageDescription": "Banana Countdown needs access to your camera to scan bananas and predict their ripeness.",
-        "NSPhotoLibraryUsageDescription": "Banana Countdown needs access to your photo library to select banana images for analysis."
+        "NSPhotoLibraryUsageDescription": "Banana Countdown needs access to your photo library to select banana images for analysis.",
+        "ITSAppUsesNonExemptEncryption": false
       }
     },
     "android": {
